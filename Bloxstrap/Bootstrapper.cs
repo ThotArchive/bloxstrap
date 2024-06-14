@@ -517,14 +517,12 @@ namespace Bloxstrap
 
             ProtocolHandler.Register("roblox", "Roblox", Paths.Application);
             ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application);
-#if STUDIO_FEATURES
             ProtocolHandler.Register("roblox-studio", "Roblox", Paths.Application);
             ProtocolHandler.Register("roblox-studio-auth", "Roblox", Paths.Application);
 
             ProtocolHandler.RegisterRobloxPlace(Paths.Application);
             ProtocolHandler.RegisterExtension(".rbxl");
             ProtocolHandler.RegisterExtension(".rbxlx");
-#endif
 
             if (Environment.ProcessPath is not null && Environment.ProcessPath != Paths.Application)
             {
@@ -558,9 +556,7 @@ namespace Bloxstrap
 
             Utility.Shortcut.Create(Paths.Application, "", Path.Combine(Paths.StartMenu, "Play Roblox.lnk"));
             Utility.Shortcut.Create(Paths.Application, "-menu", Path.Combine(Paths.StartMenu, $"{App.ProjectName} Menu.lnk"));
-#if STUDIO_FEATURES
             Utility.Shortcut.Create(Paths.Application, "-ide", Path.Combine(Paths.StartMenu, $"Roblox Studio ({App.ProjectName}).lnk"));
-#endif
 
             if (App.Settings.Prop.CreateDesktopIcon)
             {
@@ -690,13 +686,11 @@ namespace Bloxstrap
                         process.Close();
                     }
 
-#if STUDIO_FEATURES
                     foreach (Process process in Process.GetProcessesByName(App.RobloxStudioAppName))
                     {
                         process.Kill();
                         process.Close();
                     }
-#endif
                 }
                 catch (Exception ex)
                 {
@@ -731,7 +725,6 @@ namespace Bloxstrap
                 ProtocolHandler.Register("roblox-player", "Roblox", bootstrapperLocation);
             }
 
-#if STUDIO_FEATURES
             using RegistryKey? studioBootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-studio");
             if (studioBootstrapperKey is null)
             {
@@ -752,7 +745,6 @@ namespace Bloxstrap
 
                 ProtocolHandler.RegisterRobloxPlace(studioLocation);
             }
-#endif
 
             // if the folder we're installed to does not end with "Bloxstrap", we're installed to a user-selected folder
             // in which case, chances are they chose to install to somewhere they didn't really mean to (prior to the added warning in 2.4.0)
@@ -956,11 +948,7 @@ namespace Bloxstrap
             // delete any old version folders
             // we only do this if roblox isnt running just in case an update happened
             // while they were launching a second instance or something idk
-#if STUDIO_FEATURES
             if (!Process.GetProcessesByName(App.RobloxPlayerAppName).Any() && !Process.GetProcessesByName(App.RobloxStudioAppName).Any())
-#else
-            if (!Process.GetProcessesByName(App.RobloxPlayerAppName).Any())
-#endif
             {
                 foreach (DirectoryInfo dir in new DirectoryInfo(Paths.Versions).GetDirectories())
                 {

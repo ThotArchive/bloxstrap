@@ -91,7 +91,6 @@ namespace Bloxstrap
 
                 RobloxLaunchMode = LaunchMode.Player;
             }
-#if STUDIO_FEATURES
             else if (arg.StartsWith("roblox-studio:"))
             {
                 RobloxLaunchArgs = ProtocolHandler.ParseUri(arg);
@@ -122,7 +121,6 @@ namespace Bloxstrap
                     RobloxLaunchArgs = $"-task EditFile -localPlaceFile \"{pathArg}\"";
                 }
             }
-#endif
         }
 
         private void Parse()
