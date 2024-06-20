@@ -88,6 +88,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?.
+        /// </summary>
+        public static string Bootstrapper_ConfirmLaunch {
+            get {
+                return ResourceManager.GetString("Bootstrapper.ConfirmLaunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to It&apos;s possible that something is preventing Bloxstrap from connecting to the internet. Please check and try again..
         /// </summary>
         public static string Bootstrapper_Connectivity_Preventing {
@@ -293,6 +302,15 @@ namespace Bloxstrap.Resources {
         public static string Bootstrapper_WMFNotFound {
             get {
                 return ResourceManager.GetString("Bootstrapper.WMFNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add single.
+        /// </summary>
+        public static string Common_AddSingle {
+            get {
+                return ResourceManager.GetString("Common.AddSingle", resourceCulture);
             }
         }
         
@@ -595,17 +613,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {
-        ///    &quot;FFlagDebugDisplayFPS&quot;: &quot;True&quot;
-        ///}.
-        /// </summary>
-        public static string Dialog_BulkAddFastFlag_Paste {
-            get {
-                return ResourceManager.GetString("Dialog.BulkAddFastFlag.Paste", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to More information:.
         /// </summary>
         public static string Dialog_Connectivity_MoreInfo {
@@ -845,33 +852,6 @@ namespace Bloxstrap.Resources {
         public static string Enums_BootstrapperStyle_VistaDialog {
             get {
                 return ResourceManager.GetString("Enums.BootstrapperStyle.VistaDialog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Change automatically.
-        /// </summary>
-        public static string Enums_ChannelChangeMode_Automatic {
-            get {
-                return ResourceManager.GetString("Enums.ChannelChangeMode.Automatic", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Never change.
-        /// </summary>
-        public static string Enums_ChannelChangeMode_Ignore {
-            get {
-                return ResourceManager.GetString("Enums.ChannelChangeMode.Ignore", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Always prompt.
-        /// </summary>
-        public static string Enums_ChannelChangeMode_Prompt {
-            get {
-                return ResourceManager.GetString("Enums.ChannelChangeMode.Prompt", resourceCulture);
             }
         }
         
@@ -1248,51 +1228,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Commit Hash.
-        /// </summary>
-        public static string Menu_About_BuildCommitHash {
-            get {
-                return ResourceManager.GetString("Menu.About.BuildCommitHash", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Build Information.
-        /// </summary>
-        public static string Menu_About_BuildInformation {
-            get {
-                return ResourceManager.GetString("Menu.About.BuildInformation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Machine.
-        /// </summary>
-        public static string Menu_About_BuildMachine {
-            get {
-                return ResourceManager.GetString("Menu.About.BuildMachine", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Commit Ref.
-        /// </summary>
-        public static string Menu_About_BuildRef {
-            get {
-                return ResourceManager.GetString("Menu.About.BuildRef", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Timestamp.
-        /// </summary>
-        public static string Menu_About_BuildTimestamp {
-            get {
-                return ResourceManager.GetString("Menu.About.BuildTimestamp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Contributors.
         /// </summary>
         public static string Menu_About_Contributors {
@@ -1424,15 +1359,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_About_Title {
             get {
                 return ResourceManager.GetString("Menu.About.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Using an unreleased version, I see?.
-        /// </summary>
-        public static string Menu_About_UnreleasedVersion {
-            get {
-                return ResourceManager.GetString("Menu.About.UnreleasedVersion", resourceCulture);
             }
         }
         
@@ -1631,6 +1557,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_AutoUpdate_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.AutoUpdate.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prevent against closures of your existing game from accidentally launching another one..
+        /// </summary>
+        public static string Menu_Behaviour_ConfirmLaunches_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.ConfirmLaunches.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prompt to confirm when launching another Roblox instance.
+        /// </summary>
+        public static string Menu_Behaviour_ConfirmLaunches_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.ConfirmLaunches.Title", resourceCulture);
             }
         }
         

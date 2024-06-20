@@ -29,6 +29,8 @@ namespace Bloxstrap
 
         public static LaunchSettings LaunchSettings { get; private set; } = null!;
 
+        public static CultureInfo CurrentCulture { get; private set; } = CultureInfo.InvariantCulture;
+
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
@@ -110,7 +112,10 @@ namespace Bloxstrap
         protected override async void OnStartup(StartupEventArgs e)
         {
             const string LOG_IDENT = "App::OnStartup";
-            
+
+            CultureInfo.DefaultThreadCurrentUICulture = CurrentCulture;
+            Thread.CurrentThread.CurrentUICulture = CurrentCulture;
+
             base.OnStartup(e);
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
@@ -204,13 +209,13 @@ namespace Bloxstrap
             if (!IsFirstRun)
                 ShouldSaveConfigs = true;
             
-            if (Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _))
+            if (Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _))
             {
-                var result = Frontend.ShowMessageBox(
-                    "Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?", 
-                    MessageBoxImage.Warning, 
-                    MessageBoxButton.YesNo
-                );
+                // this currently doesn't work very well since it relies on checking the existence of the singleton mutex
+                // which often hangs around for a few seconds after the window closes
+                // it would be better to have this rely on the activity tracker when we implement IPC in the planned refactoring
+
+                var result = Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Bootstrapper_ConfirmLaunch, MessageBoxImage.Warning, MessageBoxButton.YesNo);
 
                 if (result != MessageBoxResult.Yes)
                 {
