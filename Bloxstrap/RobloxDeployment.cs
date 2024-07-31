@@ -89,6 +89,7 @@
 
         public static string GetLocation(string resource, string? channel = null)
         {
+            channel = DefaultChannel
             if (string.IsNullOrEmpty(channel))
                 channel = App.Settings.Prop.Channel;
 
