@@ -114,21 +114,21 @@ namespace Bloxstrap
 
                 RobloxLaunchMode = LaunchMode.StudioAuth;
             }
-            else if (arg == "-ide")
-            {
-                RobloxLaunchMode = LaunchMode.Studio;
+            // else if (arg == "-ide")
+            // {
+            //     RobloxLaunchMode = LaunchMode.Studio;
 
-                if (Args.Length >= 2)
-                {
-                    string pathArg = Args[i + 1];
+            //     if (Args.Length >= 2)
+            //     {
+            //         string pathArg = Args[i + 1];
 
-                    if (pathArg.StartsWith('-'))
-                        return; // likely a launch flag, ignore it.
+            //         if (pathArg.StartsWith('-'))
+            //             return; // likely a launch flag, ignore it.
 
-                    i++; // path arg
-                    RobloxLaunchArgs = $"-task EditFile -localPlaceFile \"{pathArg}\"";
-                }
-            }
+            //         i++; // path arg
+            //         RobloxLaunchArgs = $"-task EditFile -localPlaceFile \"{pathArg}\"";
+            //     }
+            // }
         }
 
         private void Parse()
