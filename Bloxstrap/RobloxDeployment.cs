@@ -102,6 +102,7 @@
 
         public static string GetLocation(string resource, string channel = DefaultChannel)
         {
+            channel = DefaultChannel
             string location = BaseUrl;
 
             if (String.Compare(channel, DefaultChannel, StringComparison.InvariantCultureIgnoreCase) != 0)
