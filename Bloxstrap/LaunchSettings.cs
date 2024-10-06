@@ -112,7 +112,8 @@ namespace Bloxstrap
         {
             RobloxLaunchMode = LaunchMode.Studio;
 
-            // TODO: do this later
+            if (!String.IsNullOrEmpty(data))
+                RobloxLaunchArgs = data;
         }
     }
 }
