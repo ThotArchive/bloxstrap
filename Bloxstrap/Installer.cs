@@ -92,8 +92,7 @@ namespace Bloxstrap
 
             App.Settings.Prop.EnableAnalytics = EnableAnalytics;
 
-            if (!String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid))
-                WindowsRegistry.RegisterStudio();
+            WindowsRegistry.RegisterStudio();
 
             App.Settings.Save();
 
