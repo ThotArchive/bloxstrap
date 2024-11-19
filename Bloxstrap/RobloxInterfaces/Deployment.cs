@@ -139,8 +139,7 @@
         {
             const string LOG_IDENT = "Deployment::GetInfo";
 
-            if (String.IsNullOrEmpty(channel))
-                channel = Channel;
+            channel = Channel;
 
             bool isDefaultChannel = String.Compare(channel, DefaultChannel, StringComparison.OrdinalIgnoreCase) == 0;
 
